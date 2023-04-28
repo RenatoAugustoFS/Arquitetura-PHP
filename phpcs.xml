@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ruleset>
+    <!-- Configurações gerais -->
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="encoding" value="UTF-8"/>
+
+    <!-- Diretórios para análise -->
+    <file>./src</file>
+    <file>./tests</file>
+
+    <!-- Ignorar alguns diretórios ou arquivos -->
+    <exclude-pattern>./src/SomeDirectoryToExclude</exclude-pattern>
+    <exclude-pattern>./tests/SomeTestToExclude</exclude-pattern>
+    <exclude-pattern>*.min.js</exclude-pattern>
+
+    <!-- Especificar padrões de codificação -->
+    <rule ref="PSR2"/>
+    <rule ref="PSR12"/>
+
+    <!-- Personalizar regras -->
+    <rule ref="PSR2">
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+    </rule>
+
+    <!-- Exclusão de regras de comentários -->
+    <exclude name="Squiz.Commenting.FileComment.Missing"/>
+
+    <!-- Configurar níveis de erro -->
+    <severity>
+        <error>10</error>
+        <warning>5</warning>
+    </severity>
+
+    <!-- Configurar relatórios -->
+    <report-summary show="true"/>
+    <report-xml file="phpcs-report.xml"/>
+</ruleset>

@@ -1,0 +1,42 @@
+{
+  "require": {
+    "psr/http-message": "^1.1",
+    "nyholm/psr7": "^1.7",
+    "psr/http-server-handler": "^1.0",
+    "nyholm/psr7-server": "^1.0",
+    "php-di/php-di": "^7.0",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "vlucas/phpdotenv": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpstan/phpstan": "^1.10",
+    "phan/phan": "^5.4"
+  },
+
+  "scripts": {
+    "code-snifer": "vendor/bin/phpcs src/",
+    "phpstan": " vendor/bin/phpstan analyze",
+    "phan": "vendor/bin/phan",
+
+    "check": [
+      "@code-snifer",
+      "@phpstan",
+      "@phan"
+    ],
+
+    "post-update-cmd": [
+      "@check"
+    ]
+  },
+
+  "scripts-descriptions": {
+    "check": "Roda as verificações de código. PHAN, PHPCS & PHPSTAN"
+  }
+}
